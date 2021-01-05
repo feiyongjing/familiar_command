@@ -199,7 +199,7 @@ public class Main {
         questionsAndAnswers.put("对指定用户组删除目录的ACL权限", "setfacl [-x g:groupName] [targetDir]");
         questionsAndAnswers.put("对删除目录的所有ACL权限(包含用户和用户组)", "setfacl [-b] [targetDir]");
         questionsAndAnswers.put("对指定用户递归设置目录的ACL权限", "setfacl [-m u:userName:rwx] [-R] [targetDir]");
-//        questionsAndAnswers.put("", "");
+        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
