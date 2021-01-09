@@ -68,17 +68,17 @@ public class Main {
 //        questionsAndAnswers.put("将目录压缩为.tar.gz格式(打包为.tar然后压缩成.gz)", "tar [-cvfz] [targetFile] [sourceDir]");
 //        questionsAndAnswers.put("将.tar.gz格式文件解压缩", "tar [-xvfz] [sourceFile]");
 //
-//        questionsAndAnswers.put("查看当前登录的用户名", "whoami | id [-un]");
-//        questionsAndAnswers.put("查看当前主机登录的用户信息", "w | who");
+        questionsAndAnswers.put("查看当前登录的用户名", "whoami | id [-un]");
+        questionsAndAnswers.put("查看当前主机登录的用户信息", "w | who");
         questionsAndAnswers.put("创建新用户", "sudo useradd [-u UID] [-g initialGroup] [-G attachGroup] [-s /bin/shell] [userName]");
-//        questionsAndAnswers.put("设置用户密码", "sudo passwd [userName] | passwd");
-        questionsAndAnswers.put("设置用户密码", "sudo echo [\"password\"] | passwd --stdin [userName]");
+        questionsAndAnswers.put("设置用户密码", "sudo passwd [userName] | passwd");
+//        questionsAndAnswers.put("设置用户密码", "sudo echo [\"password\"] | passwd --stdin [userName]");
         questionsAndAnswers.put("查询用户的密码状态", "sudo passwd [-S] [userName]");
         questionsAndAnswers.put("锁定用户", "sudo passwd [-l] [userName] | sudo usermod [-L] [userName]");
         questionsAndAnswers.put("解锁用户", "sudo passwd [-u] [userName] | sudo usermod [-U] [userName]");
         questionsAndAnswers.put("修改以存在的用户信息", "sudo usermod [-u UID] [-g initialGroup] [-G attachGroup] [-s /bin/shell] [userName]");
         questionsAndAnswers.put("删除用户", "sudo userdel [-r] [userName]");
-
+//
         questionsAndAnswers.put("列出用户的详细密码状态", "chage [-l]");
         questionsAndAnswers.put("修改密码的最后一次更改日期(1970年1月1日之后第几天)", "chage [-d] [10000]");
         questionsAndAnswers.put("修改两次密码的时间间隔", "chage [-m] [10]");
@@ -92,27 +92,26 @@ public class Main {
         questionsAndAnswers.put("将用户添加的用户组", "gpasswd [-a userName] [groupName]");
         questionsAndAnswers.put("将用户从用户组删除", "gpasswd [-d userName] [groupName]");
 
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("切换用户", "switch [userName]");
+//        questionsAndAnswers.put("切换用户", "switch [userName] | su [-userName]");
 //
 //        questionsAndAnswers.put("终端窗口清除", "clear");
 //        questionsAndAnswers.put("查看命令历史", "history");
 
 //        #
-        questionsAndAnswers.put("对在线的目标用户进行编写信息(编写完成后Ctrl+D发送)", "write [userName]");
-        questionsAndAnswers.put("对目标用户进行编写信息(编写完成后Ctrl+D发送邮件)", "mail [userName]");
-        questionsAndAnswers.put("查看邮箱", "mail");
-        questionsAndAnswers.put("对所有的在线用户进行发送信息", "wall [massage]");
-        questionsAndAnswers.put("对目标主机发送3次数据包(用于检测目标主机的网络状态)", "ping [-c 3] [targetIp]");
-        questionsAndAnswers.put("显示网络设备信息", "ifconfig");
-        questionsAndAnswers.put("显示当前主机最近登录信息", "last");
-        questionsAndAnswers.put("显示当前主机最后登录的信息", "lastlog");
-        questionsAndAnswers.put("显示数据包到目标主机间的路径", "traceroute [targetIp]");
-        questionsAndAnswers.put("显示网络状态与服务端口等", "netstat [-atrn]");
-        questionsAndAnswers.put("设置公用程序(可能没有)", "sudo setup");
-        questionsAndAnswers.put("挂载外界设备", "mount [sourceDir] [targetDir]");
-        questionsAndAnswers.put("卸载已挂载的外界设备(在挂载目录之下无法卸载)", "umount [sourceDir]");
-        questionsAndAnswers.put("重启网络服务", "service network restart");
+//        questionsAndAnswers.put("对在线的目标用户进行编写信息(编写完成后Ctrl+D发送)", "write [userName]");
+//        questionsAndAnswers.put("对目标用户进行编写信息(编写完成后Ctrl+D发送邮件)", "mail [userName]");
+//        questionsAndAnswers.put("查看邮箱", "mail");
+//        questionsAndAnswers.put("对所有的在线用户进行发送信息", "wall [massage]");
+//        questionsAndAnswers.put("对目标主机发送3次数据包(用于检测目标主机的网络状态)", "ping [-c 3] [targetIp]");
+//        questionsAndAnswers.put("显示网络设备信息", "ifconfig");
+//        questionsAndAnswers.put("显示当前主机最近登录信息", "last");
+//        questionsAndAnswers.put("显示当前主机最后登录的信息", "lastlog");
+//        questionsAndAnswers.put("显示数据包到目标主机间的路径", "traceroute [targetIp]");
+//        questionsAndAnswers.put("显示网络状态与服务端口等", "netstat [-atrn]");
+//        questionsAndAnswers.put("设置公用程序(可能没有)", "sudo setup");
+//        questionsAndAnswers.put("挂载外界设备", "mount [sourceDir] [targetDir]");
+//        questionsAndAnswers.put("卸载已挂载的外界设备(在挂载目录之下无法卸载)", "umount [sourceDir]");
+//        questionsAndAnswers.put("重启网络服务", "service network restart");
 
 //        questionsAndAnswers.put("关机重启", "shutdown [-chr] [now | 20:00] | init [0 | 6]");
 //        questionsAndAnswers.put("退出登录", "logout");
@@ -182,36 +181,36 @@ public class Main {
 //        questionsAndAnswers.put("yum安装软件包组(需要全名)", "yum groupinstall [packageGroupName]");
 //        questionsAndAnswers.put("yum卸载软件组(大概率会导致系统崩溃,尽量使用手工卸载)", "yum groupremove [packageGroupName]");
 
-        questionsAndAnswers.put("用户信息目录", "/etc/passwd");
-        questionsAndAnswers.put("影子文件目录", "/etc/shadow");
-
-        questionsAndAnswers.put("把时间戳换算成日期", "date [-d] [1970-01-01 10000 days]");
-        questionsAndAnswers.put("把日期换算成时间戳", "echo $(($date --date=\"1999/09/08\"+%s)/86400+1))\uFEFF\u200B");
-
-        questionsAndAnswers.put("修改目录或文件权限", "chmod [-R] [700] [targetDir]");
-        questionsAndAnswers.put("修改目录或文件特殊权限(setUID)", "chmod [u+s | 4711] [targetDir]");
-        questionsAndAnswers.put("修改目录或文件特殊权限(setGID)", "chmod [g+s | 2711] [targetDir]");
-        questionsAndAnswers.put("修改目录或文件特殊权限(sticky BIT)", "chmod [o+t | 1755] [targetDir]");
-        questionsAndAnswers.put("临时开启ACL分区权限", "mount [-o remount,acl] /");
-        questionsAndAnswers.put("永久开启ACL分区权限编辑那个配置文件(不推荐使用,编辑时请注意格式,否则系统崩溃)", "/etc/fstab");
-        questionsAndAnswers.put("查看目录的ACL权限", "getfacl [targetDir]");
-        questionsAndAnswers.put("对指定用户设置目录的ACL权限(与mask权限\"相与\"的权限才能设置成功)", "setfacl [-m u:userName:rwx] [targetDir]");
-        questionsAndAnswers.put("对指定用户组设置目录的ACL权限(与mask权限\"相与\"的权限才能设置成功)", "setfacl [-m g:groupName:rwx] [targetDir]");
-        questionsAndAnswers.put("设置目录的mask权限(mask权限指ACL权限的最大值)", "setfacl [-m m:rwx] [targetDir]");
-        questionsAndAnswers.put("对指定用户删除目录的ACL权限", "setfacl [-x u:userName] [targetDir]");
-        questionsAndAnswers.put("对指定用户组删除目录的ACL权限", "setfacl [-x g:groupName] [targetDir]");
-        questionsAndAnswers.put("对删除目录的所有ACL权限(包含用户和用户组)", "setfacl [-b] [targetDir]");
-        questionsAndAnswers.put("对指定用户递归设置目录的ACL权限", "setfacl [-m u:userName:rwx] [-R] [targetDir]");
-        questionsAndAnswers.put("对指定用户设置目录之下的新创建目录默认ACL权限", "setfacl [-m d:u:userName:rwx] [-R] [targetDir]");
-        questionsAndAnswers.put("修改文件的系统属性权限(无法对文件进行任何操作,即使是root用户)", "chattr [+i] [targetFile]");
-        questionsAndAnswers.put("修改目录的系统属性权限(只能修改目录下文件的内容,无法对目录进行其他操作,即使是root用户)", "chattr [+i] [targetDir]");
-        questionsAndAnswers.put("修改文件的系统属性权限(只能对文件的内容进行增加,无法对文件进行其他操作,即使是root用户)", "chattr [+a] [targetFile]");
-        questionsAndAnswers.put("修改文件的系统属性权限(在目录下可以创建和修改文件,但是不能删除文件,即使是root用户)", "chattr [+a] [targetDir]");
-        questionsAndAnswers.put("查看文件系统的属性(显示目录之下一级目录和文件或只显示指定目录)", "lsattr [-a | -d] [targetDir]");
-        questionsAndAnswers.put("", "");
-        questionsAndAnswers.put("", "");
-        questionsAndAnswers.put("", "");
-        questionsAndAnswers.put("", "");
+//        questionsAndAnswers.put("用户信息目录", "/etc/passwd");
+//        questionsAndAnswers.put("影子文件目录", "/etc/shadow");
+//
+//        questionsAndAnswers.put("把时间戳换算成日期", "date [-d] [1970-01-01 10000 days]");
+//        questionsAndAnswers.put("把日期换算成时间戳", "echo $(($date --date=\"1999/09/08\"+%s)/86400+1))\uFEFF\u200B");
+//
+//        questionsAndAnswers.put("修改目录或文件权限", "chmod [-R] [700] [targetDir]");
+//        questionsAndAnswers.put("修改目录或文件特殊权限(setUID)", "chmod [u+s | 4711] [targetDir]");
+//        questionsAndAnswers.put("修改目录或文件特殊权限(setGID)", "chmod [g+s | 2711] [targetDir]");
+//        questionsAndAnswers.put("修改目录或文件特殊权限(sticky BIT)", "chmod [o+t | 1755] [targetDir]");
+//        questionsAndAnswers.put("临时开启ACL分区权限", "mount [-o remount,acl] /");
+//        questionsAndAnswers.put("永久开启ACL分区权限编辑那个配置文件(不推荐使用,编辑时请注意格式,否则系统崩溃)", "/etc/fstab");
+//        questionsAndAnswers.put("查看目录的ACL权限", "getfacl [targetDir]");
+//        questionsAndAnswers.put("对指定用户设置目录的ACL权限(与mask权限\"相与\"的权限才能设置成功)", "setfacl [-m u:userName:rwx] [targetDir]");
+//        questionsAndAnswers.put("对指定用户组设置目录的ACL权限(与mask权限\"相与\"的权限才能设置成功)", "setfacl [-m g:groupName:rwx] [targetDir]");
+//        questionsAndAnswers.put("设置目录的mask权限(mask权限指ACL权限的最大值)", "setfacl [-m m:rwx] [targetDir]");
+//        questionsAndAnswers.put("对指定用户删除目录的ACL权限", "setfacl [-x u:userName] [targetDir]");
+//        questionsAndAnswers.put("对指定用户组删除目录的ACL权限", "setfacl [-x g:groupName] [targetDir]");
+//        questionsAndAnswers.put("对删除目录的所有ACL权限(包含用户和用户组)", "setfacl [-b] [targetDir]");
+//        questionsAndAnswers.put("对指定用户递归设置目录的ACL权限", "setfacl [-m u:userName:rwx] [-R] [targetDir]");
+//        questionsAndAnswers.put("对指定用户设置目录之下的新创建目录默认ACL权限", "setfacl [-m d:u:userName:rwx] [-R] [targetDir]");
+//        questionsAndAnswers.put("修改文件的系统属性权限(无法对文件进行任何操作,即使是root用户)", "chattr [+i] [targetFile]");
+//        questionsAndAnswers.put("修改目录的系统属性权限(只能修改目录下文件的内容,无法对目录进行其他操作,即使是root用户)", "chattr [+i] [targetDir]");
+//        questionsAndAnswers.put("修改文件的系统属性权限(只能对文件的内容进行增加,无法对文件进行其他操作,即使是root用户)", "chattr [+a] [targetFile]");
+//        questionsAndAnswers.put("修改文件的系统属性权限(在目录下可以创建和修改文件,但是不能删除文件,即使是root用户)", "chattr [+a] [targetDir]");
+//        questionsAndAnswers.put("查看文件系统的属性(显示目录之下一级目录和文件或只显示指定目录)", "lsattr [-a | -d] [targetDir]");
+//        questionsAndAnswers.put("root赋予其他用户对命令的root权限(通过修改文件)", "visudo | vi /etc/sudoers");
+//        questionsAndAnswers.put("查看可以使用的sudo命令", "sudo [-l]");
+//        questionsAndAnswers.put("普通用户执行sudo命令(command必须与可以使用的sudo命令完全一致)", "sudo [command]");
+//        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
 //        questionsAndAnswers.put("", "");
