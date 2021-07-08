@@ -1,21 +1,25 @@
-package com.github.feiyongjing.service;
+package com.github.feiyongjing.service.main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.github.feiyongjing.service.CommandTest;
+
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.Set;
+import java.util.LinkedHashMap;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        HashMap<String, String> questionsAndAnswers = new HashMap<>();
-//        questionsAndAnswers.put("查看磁盘空间的使用情况", "df [-h]");
-//        questionsAndAnswers.put("显示指定的目录或文件所占用的磁盘空间", "du [-h] [targetDir]");
-//        questionsAndAnswers.put("查看目录下的详细信息", "ls [-althi] [targetDir]");
-//        questionsAndAnswers.put("切换到d盘", "cd /d");
-//        questionsAndAnswers.put("显示工作目录的绝对路径名称", "pwd");
+public class Linux extends CommandTest {
+    public static void main(String[] args){
+        CommandTest commandTest=new Linux();
+        commandTest.commandInputOutput(commandTest.getQuestionsAndAnswers());
+    }
 
+    @Override
+    public HashMap<String, String> getQuestionsAndAnswers() {
+        LinkedHashMap<String, String> questionsAndAnswers = new LinkedHashMap<>();
+        questionsAndAnswers.put("查看磁盘空间的使用情况", "df [-h]");
+        questionsAndAnswers.put("显示指定的目录或文件所占用的磁盘空间", "du [-h] [targetDir]");
+        questionsAndAnswers.put("查看目录下的详细信息", "ls [-althi] [targetDir]");
+        questionsAndAnswers.put("切换到d盘", "cd /d");
+        questionsAndAnswers.put("显示工作目录的绝对路径名称", "pwd");
+//
 //        questionsAndAnswers.put("创建目录", "mkdir [-p] [targetDir]");
 //        questionsAndAnswers.put("创建文件", "touch [targetFile]");
 //        questionsAndAnswers.put("删除空目录", "rmdir [targetDir]");
@@ -29,7 +33,7 @@ public class Main {
 //        questionsAndAnswers.put("倒立显示文件内容", "tac [targetFile]");
 //        questionsAndAnswers.put("创建文件的软连接", "ln [-s] [sourceDir] [targetDir]");
 //        questionsAndAnswers.put("创建文件的硬连接", "ln [sourceFile] [targetFile]");
-
+//
 //        questionsAndAnswers.put("修改目录或文件的所有者", "sudo chown [userName] [targetDir]");
 //        questionsAndAnswers.put("修改目录或文件的所属组", "sudo chgrp [groupName] [targetDir]");
 //        questionsAndAnswers.put("显示新建目录默认权限", "umask [-S]");
@@ -56,7 +60,7 @@ public class Main {
 //        questionsAndAnswers.put("查看命令或配置文件的帮助文档,如date命令(Shell内置命令除外)", "man [1 | 5] [date | fileName]");
 //        questionsAndAnswers.put("查看Shell内置命令,如cd命令", "help [cd]");
 //        questionsAndAnswers.put("查找文件的内容中指定字符串", "grep [-irvn] [string] [targetFile]");
-//
+
 //        questionsAndAnswers.put("文件与目录压缩为zip格式", "zip [-r] [targetFile] [sourceFile]");
 //        questionsAndAnswers.put("将.zip格式文件解压缩", "unzip [sourceFile]");
 //        questionsAndAnswers.put("文件压缩为.bz2格式", "bzip2 [-k] [sourceFile]");
@@ -112,12 +116,12 @@ public class Main {
 //        questionsAndAnswers.put("挂载外界设备", "mount [sourceDir] [targetDir]");
 //        questionsAndAnswers.put("卸载已挂载的外界设备(在挂载目录之下无法卸载)", "umount [sourceDir]");
 //        questionsAndAnswers.put("重启网络服务", "service network restart");
-
+//
 //        questionsAndAnswers.put("关机重启", "shutdown [-chr] [now | 20:00] | init [0 | 6]");
 //        questionsAndAnswers.put("退出登录", "logout");
 //        questionsAndAnswers.put("查看和修改系统运行级别", "runlevel & vi [/etc/inittab]");
 //
-//        questionsAndAnswers.put("编辑指定文(不存在就创建)", "vi [targetFile]");
+//        questionsAndAnswers.put("编辑指定文件(不存在就创建)", "vi [targetFile]");
 //        questionsAndAnswers.put("命令模式进入插入模式", "[aioAIO]");
 //        questionsAndAnswers.put("命令模式进入底线命令模式", "[:]");
 //        questionsAndAnswers.put("底线命令模式和插入模式进入命令模式", "[Esc]");
@@ -126,7 +130,7 @@ public class Main {
 //        questionsAndAnswers.put("取消上一步操作", "[u]");
 //
 //        questionsAndAnswers.put("光标移到第一行(最后一行或第n行)", "[gg] | [G] | [nG | :n]");
-//        questionsAndAnswers.put("光标移到当前行行或行尾", "[0] | [$]");
+//        questionsAndAnswers.put("光标移到当前行首或行尾", "[0] | [$]");
 //
 //        questionsAndAnswers.put("导入其他文件内容", "[:r fileName]");
 //        questionsAndAnswers.put("导入命令", "[:!command]");
@@ -144,7 +148,7 @@ public class Main {
 //        questionsAndAnswers.put("替换光标所在处的字符", "[r]");
 //        questionsAndAnswers.put("进入替换模式", "[R]");
 //
-//        questionsAndAnswers.put("搜索指定字符串", "[/sourceString]");
+//        questionsAndAnswers.put("搜索指定字符串", "[:/sourceString]");
 //        questionsAndAnswers.put("全文替换指定字符串", "[:%s/sourceString/targetString/[c | g]]");
 //        questionsAndAnswers.put("指定范围行(n1到n2)替换指定字符串", "[:n1.n2s/sourceString/targetString/[c | g]]");
 //
@@ -170,7 +174,7 @@ public class Main {
 //
 //        questionsAndAnswers.put("检查已安装的rpm包是否修改过", "rpm [-V] [packageName]");
 //        questionsAndAnswers.put("提取rpm包转换成cpio格式,将指定文件提取到指定目录", "rpm2cpio [packageName] | cpio [-idv] [targetDir]");
-
+//
 //        questionsAndAnswers.put("查看网络yum源的配置文件", "cat /etc/yum.repos.d/CentOS-Linux-BaseOS.repo");
 //        questionsAndAnswers.put("查看可用软件包列表", "yum list");
 //        questionsAndAnswers.put("yum方式查看和目标字符串相关的软件包", "yum search [targetString]");
@@ -211,148 +215,6 @@ public class Main {
 //        questionsAndAnswers.put("查看可以使用的sudo命令", "sudo [-l]");
 //        questionsAndAnswers.put("普通用户执行sudo命令(command必须与可以使用的sudo命令完全一致)", "sudo [command]");
 
-//        git command
-        questionsAndAnswers.put("新建一个目录，将其初始化为Git代码库", "git init [targetDir]");
-        questionsAndAnswers.put("添加指定文件到暂存区 ", "git add [targetDir]");
-        questionsAndAnswers.put("指定文件从暂存区移除 ", "git reset HEAD [targetDir]");
-        questionsAndAnswers.put("删除工作区文件，并且将这次删除放入暂存区", "git rm [-r targetDir]");
-        questionsAndAnswers.put("停止指定文件的版本控制，但该文件会保留在工作区", "git rm --cached [targetDir]﻿​");
-        questionsAndAnswers.put("改名文件，并且将这个改名放入暂存区", "git mv [sourceDir] [targetDir]");
-        questionsAndAnswers.put("重做上一次commit，并包括指定文件的新变化", "git commit --amend﻿​ [targetDir]");
-        questionsAndAnswers.put("将选择的文件提交到本地", "git commit [-m massage]");
-        questionsAndAnswers.put("commit提交取消某一次commit文件产生的变化", "git revert [commitCode]");
-        questionsAndAnswers.put("commit提交某一次commit提交的文件变化", "git cherry-pick [commitCode]");
-        questionsAndAnswers.put("查看当下状态下所有被提交的文件", "git log");
-
-        questionsAndAnswers.put("列出所有本地或远程分支﻿​", "git branch [-ar]");
-        questionsAndAnswers.put("新建一个分支，但依然停留在当前分支", "git branch [newBranch]");
-        questionsAndAnswers.put("建立追踪关系，在现有分支与指定的远程分支之间", "git branch --set-upstream [branch] [remote-branch]");
-        questionsAndAnswers.put("删除分支", "git branch [-d branch]﻿​");
-        questionsAndAnswers.put("新建一个分支，与指定的远程分支建立追踪关系", "git branch --track [branch] [remote-branch]﻿​");
-        questionsAndAnswers.put("切换到上一个分支 ", "git checkout -");
-        questionsAndAnswers.put("切换到指定分支或历史，并更新工作区", "git checkout [branch | historyCode]");
-        questionsAndAnswers.put("新建一个分支，并切换到该分支", "git checkout [-b newBranch]");
-        questionsAndAnswers.put("回退到指定历史(完全一致,会删除现有的暂存区和工作区)", "git reset --hard [historyCode]");
-        questionsAndAnswers.put("回退到指定历史(会保留现有的暂存区和工作区，但是暂存区同时也有历史)", "git reset --soft [historyCode]");
-        questionsAndAnswers.put("回退到指定历史(工作区会和历史混合,同时清除空现有的暂存区)", "git reset --mixed [historyCode]");
-        questionsAndAnswers.put("基于历史新建一个分支，并切换到该分支", "git checkout [-b newBranch] [historyCode]");
-        questionsAndAnswers.put("查看当前分支状态", "git status");
-
-        questionsAndAnswers.put("合并指定分支到当前分支", "git merge [branch]");
-        questionsAndAnswers.put("合并导致冲突在解决冲突后,继续合并分支", "git merge --continue");
-        questionsAndAnswers.put("合并导致冲突后,停止合并分支回到合并之前的状态", "git merge --abort");
-        questionsAndAnswers.put("合并导致冲突后,引起冲突的commits会被丢弃(不要使用)", "git merge --skip");
-        questionsAndAnswers.put("指定分支的提交压扁后合并到当前分支", "git merge --squash [branch]");
-        questionsAndAnswers.put("当前分支与指定分支历史的分叉之后的当前分支所有提交在指定分支的尖端全部重新提交一次", "git rebase [branch]");
-        questionsAndAnswers.put("中断rebase操作并回到rebase之前的状态", "git rebase --abort");
-        questionsAndAnswers.put("git rebase 发生冲突，冲突解决并git add 后继续进行rebase操作", "git rebase --continue");
-        questionsAndAnswers.put("git rebase 导致冲突后,引起冲突的commits会被丢弃(不要使用)", "git rebase --skip");
-
-        questionsAndAnswers.put("进入bisect模式进行debug", "git bisect start");
-        questionsAndAnswers.put("退出bisect模式", "git bisect reset");
-        questionsAndAnswers.put("当前状态是坏的", "git bisect bad");
-        questionsAndAnswers.put("当前状态是好的", "git bisect good");
-        questionsAndAnswers.put("当前状态不确定时,跳过当前状态", "git bisect skip");
-        questionsAndAnswers.put("启动指定的shell脚本进行debug(注意要先进入bisect模式并确定好的与坏的之间的区间)", "git bisect run [shellFile]");
-
-        questionsAndAnswers.put("列出所有tag", "git tag");
-        questionsAndAnswers.put("新建一个tag在当前commit", "git tag [v1.0]");
-        questionsAndAnswers.put("新建一个tag在当前commit并附加tag信息", "git tag [-a v1.0] [-m massage]");
-        questionsAndAnswers.put("新建一个tag在指定commit", "git tag [v1.0] [commitCode]");
-        questionsAndAnswers.put("删除本地tag", "git tag [-d v1.0]");
-        questionsAndAnswers.put("删除远程tag", "git push origin :refs/tags/[v1.0]");
-        questionsAndAnswers.put("查看指定tag信息", "git show [v1.0]");
-        questionsAndAnswers.put("提交指定tag", "git push origin [v1.0]");
-        questionsAndAnswers.put("提交全部的tag", "git push origin --tags");
-        questionsAndAnswers.put("新建一个分支，指向某个tag", "git checkout -b [branch] [v1.0]");
-        questionsAndAnswers.put("更新本地tag", "fetch --tags");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-
-        questionsAndAnswers.put("下载一个项目和它的整个代码历史﻿​", "git clone [url]");
-        questionsAndAnswers.put("下载远程仓库的所有变动﻿​", "git fetch");
-        questionsAndAnswers.put("取回远程仓库的变化，并与本地分支合并", "git pull [origin] [branch]");
-        questionsAndAnswers.put("上传本地指定分支到远程仓库 ", "git push [-u] [origin] [branch]");
-        questionsAndAnswers.put("强行推送当前分支到远程仓库，即使有冲突", "git push [-f origin]");
-        questionsAndAnswers.put("推送所有分支到远程仓库", "git push [origin] --all﻿​");
-        questionsAndAnswers.put("显示所有远程仓库", "git remote -v");
-        questionsAndAnswers.put("显示某个远程仓库的信息", "git remote show [remote-repository]");
-        questionsAndAnswers.put("增加一个新的远程仓库，并命名", "git remote add [remoteName] [url]");
-
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-//        questionsAndAnswers.put("", "");
-
-        Set<String> questions = questionsAndAnswers.keySet();
-
-        int index = 1;
-        int errorNum = 0;
-        for (String question : questions) {
-            System.out.println("第" + (index++) + "题");
-            System.out.println(question);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String keyword = reader.readLine();
-
-            if (Objects.equals(keyword, "下一题")) continue;
-
-            if (Objects.equals(keyword, questionsAndAnswers.get(question))) {
-                System.out.println("回答正确");
-            } else {
-                errorNum++;
-                System.out.println("回答错误");
-            }
-            System.out.println("正确答案：" + questionsAndAnswers.get(question));
-        }
-        System.out.println("一共" + questionsAndAnswers.size() + "题");
-        System.out.println("error Number:" + errorNum);
+        return questionsAndAnswers;
     }
 }
